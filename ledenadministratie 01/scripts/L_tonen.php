@@ -36,7 +36,7 @@
         /**** formulier klaar maken ********/
         if (! isset($_POST["submit"])) {
             
-            $_output.= "<h1>Lid toevoegen</h1>
+            $_output.= "<h1>Lid tonen</h1>
                         <hr>
                         <form method='post' action='$_srv'>
                             <table class='formTable'>

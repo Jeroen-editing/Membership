@@ -162,7 +162,7 @@ main {
   overflow-y: scroll;
   list-style: square;
   color: rgb(0, 99, 0);
-  background: rgba(89, 137, 151, 0.2);
+  background: rgba(98, 151, 167, 0.2);
   border: 1px solid rgb(80, 151, 14);
   box-shadow: 1px 0 2px rgba(102, 102, 102, 0.4), -1px 0 2px rgba(102, 102, 102, 0.4);
 }
@@ -233,54 +233,54 @@ main {
 }
 
 fieldset {
-  margin: 8px 0;
-  padding: 10px 2px 8px 14px;
-  background: rgba(105, 149, 162, 0.18);
+  margin: 0 0 12px 0;
+  padding: 10px 13px 8px 13px;
+  background: rgba(105, 149, 162, 0.12);
   border: 1px solid darkolivegreen;
-  border-radius: 4px;
-  box-shadow: 0 0 2px 1px rgba(108, 108, 108, 0.6);
+  border-radius: 2px;
 }
 
 legend, label {
   height: 17px;
-  margin: 0 2px 4px 0;
-  padding: 4px 0 4px 16px;
   color: rgb(12, 109, 3);
   font-family: 'Montserrat', sans-serif;
-  font-size: 14px;
-  letter-spacing: 1px;
+  letter-spacing: 2px;
   border: none;
   border-left: 2px solid darkolivegreen;
   border-bottom: 1px solid darkolivegreen;
-  border-radius: 4px;
-  border-top-left-radius: 14px;
-  border-bottom-left-radius: 14px;
-  box-shadow: inset 0 0 2px 1px rgba(108, 108, 108, 0.6);
 }
 
 legend {
-  width: 180px;
-  margin-left: 6px;
+  width: 450px;
+  margin: 0 -14px 0 -14px;
+  padding: 4px 0 6px 22px;
+  font-size: 16px;
   font-weight: 700;
-  background: rgb(252, 229, 175);
-  border-right: 2px solid darkolivegreen;
-  border-radius: 14px;
+  background: rgb(252, 230, 175);
+  border: 1px solid darkolivegreen;
+  border-radius: 2px;
 }
 
 label {
   width: 118px;
-  margin-left: 22px;
+  margin: 2px 2px 4px 22px;
+  padding: 4px 0 4px 16px;
   clear: both;
   float: left;
+  font-size: 14px;
   font-weight: 600;
   background: rgb(250, 243, 221);
+  border: none;
+  border-left: 2px solid darkolivegreen;
+  border-bottom: 1px solid darkolivegreen;
+  border-radius: 2px;
 }
 
 input {
   float: left;
   height: 17px;
-  max-width: 242px;
-  margin: 0 2px 4px 0;
+  width: 252px;
+  margin: 2px 2px 4px 0;
   padding: 4px 4px 4px 6px;
   font-family: 'Montserrat', sans-serif;
   font-size: 15px;
@@ -289,85 +289,83 @@ input {
   border: none;
   border-right: 2px solid darkolivegreen;
   border-bottom: 1px solid darkolivegreen;
-  border-radius: 4px;
-  border-top-right-radius: 14px;
-  border-bottom-right-radius: 14px;
-  box-shadow: inset 0 0 2px 1px rgba(128, 128, 128, 0.6);
+  border-radius: 2px;
 }
 
-select {
-  height: 26px;
-  width: 120px;
-  margin: 0 2px 2px 0;
-  font-size: 12px;
-  letter-spacing: 1px;
-  -moz-appearance: none;
-       appearance: none;
-  border: none;
-  border-right: 1px solid darkolivegreen;
-  border-bottom: 1px solid darkolivegreen;
-  border-radius: 4px;
-  border-top-right-radius: 14px;
-  border-bottom-right-radius: 14px;
-  box-shadow: inset 0 0 2px 1px rgba(128, 128, 128, 0.6);
+label {
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+}
+
+input {
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
 }
 
 select:hover, select:active, select:focus {
-  border: none;
+
   outline: none;
 }
 
 select::-moz-focus-inner { 
-  border: 0;
   outline: 0; 
 }
 
-.formNr {
+.formNr,
+.formXtr {
+  width: 120px;
   border-right: none;
-  border-radius: 4px;
+  border-bottom: 1px solid darkolivegreen;
+  border-radius: 0;
+}
+
+.formXtr {
+  border-right: 2px solid darkolivegreen;
+  border-top-right-radius: 2px;
+  border-bottom-right-radius: 2px;
 }
 
 #buttons {
   display: flex;
   flex-direction: row;
-  min-width: 452px;
-  margin-left: 3px;
-  padding-top: 14px;
+  min-width: 444px;
+  margin: 12px 0;
+  padding: 10px 16px 8px 13px;
 }
 
-#reset, #submit, .single_button  {
+#reset, #submit, .single_button {
   clear: both;
-  height: 24px;
-  padding: 1px 16px;
+  height: 28px;
+  margin: 8px 2px 6px 0;
+  padding: 3px 16px;
   color: white;
   font-weight: 500;
   text-align: left;
   text-transform: capitalize;
   background: linear-gradient(180deg, rgba(41, 85, 205, 0.6) 0%, rgba(12, 122, 226, 0.8) 29%, rgba(14, 117, 213, 0.8) 68%, rgba(41, 85, 205, 0.6) 100%);
   border: none;
-  border-radius: 4px;
-  box-shadow: 0 0 2px 1px rgb(52, 52, 52);
+  border-radius: 2px;
 }
 
 #reset {
   width: 134px;
-  margin: 0 4px 0 22px;
+  margin-left: 22px;
   padding-left: 18px;
   font-size: 16px;
   border-left: 2px solid rgb(21, 58, 179);
   border-bottom: 1px solid rgb(21, 58, 179);
-  border-top-left-radius: 14px;
-  border-bottom-left-radius: 14px;
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
 }
 
 #submit {
-  min-width: 252px;
+  min-width: 266px;
   padding-left: 16px;
   font-size: 16px;
   border-right: 2px solid rgb(21, 58, 179);
   border-bottom: 1px solid rgb(21, 58, 179);
-  border-top-right-radius: 14px;
-  border-bottom-right-radius: 14px
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
 }
 
 .single_button {
@@ -380,7 +378,7 @@ select::-moz-focus-inner {
   border-right: 2px solid rgb(21, 58, 179);
   border-bottom: 1px solid rgb(21, 58, 179);
   border-left: 2px solid rgb(21, 58, 179);
-  border-radius: 14px;
+  border-radius: 2px;
 }
 
 #reset:hover,
@@ -389,7 +387,6 @@ select::-moz-focus-inner {
   /*color: rgb(237, 199, 12);*/
   color: rgb(252, 229, 175);
   background: rgb(0, 143, 88);
-  box-shadow: inset 0 0 2px 1px rgb(52, 52, 52);
 }
 
 #reset:hover {
