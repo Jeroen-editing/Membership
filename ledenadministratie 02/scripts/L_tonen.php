@@ -35,44 +35,58 @@
 
         /**** formulier klaar maken ********/
         if (! isset($_POST["submit"])) {
-            $_output ="
-                <h1>Leden tonen</h1>
-                <form method='post' action='$_srv'>
-                    <label>Naam</label>
-                        <input type='text' name='naam' size='40'>
-                    <label>Voornaam</label>
-                        <input type='text' name='voornaam' size='40'>
-                    <label>Gender</label>
-                    <br><hr>";
-
-            /**** drop-down gender *******/
-            $_output.= dropDown("gender","t_gender","d_index","d_mnemonic");
-
-            $_output.="<label >Soort lid</label>";
-            /**** drop-down soort lid *******/
-            $_output.= dropDown("soort","t_soort_lid","d_index","d_mnemonic");
-
-            $_output.="
-                    <br><hr>
-                    <label>Straat</label>
-                        <input type='text' name='straat'>
-                    <label>Nr+ Extra</label>
-                        <input type='text' name='nr' size='3'>
-                        <input type='text' name='xtr' size='3'>
-                    <label>Postcode</label>
-                        <input type='text' name='postcode' size='8'>
-                    <label>Gemeente</label>
-                        <input type='text' name='gemnaam' size='40'>
-                    <br><hr>
-                    <label>Telefoon</label>
-                        <input type='text' name='tel' size='16'>
-                    <label>Mobiel</label>
-                        <input type='text' name='mob' size='16'>
-                    <label>E-mail</label>
-                        <input type='text' name='mail' size='40'>
-                    <br><hr>
-                    <input name='submit' id='submit' type='submit' value='verzenden'>
-                </form>";
+            
+            $_output.=  "   <h1>Lid tonen</h1>
+                            <hr>
+                            <form method='post' action='$_srv'>
+                                <fieldset>
+                                    <legend>Personalia</legend>
+                                    <label>Naam</label>
+                                        <input type='text' name='naam' size='40'>
+                                    <label>Voornaam</label>
+                                        <input type='text' name='voornaam' size='40'>
+                                </fieldset>
+                                <br><br>
+                                <fieldset>
+                                    <legend>Gender</legend>
+                                    <label>Gender</label>".
+                                        dropDown("gender", "t_gender", "d_index", "d_mnemonic", $_start).
+                                "</fieldset>
+                                <br><br>
+                                <fieldset>
+                                    <legend>Lidmaatschap</legend>
+                                    <label>Soort lid</label>".
+                                        dropDown("soort", "t_soort_lid", "d_index", "d_mnemonic", $_start).
+                                "</fieldset>
+                                <br><br>
+                                <fieldset>
+                                    <legend>Adres</legend>
+                                    <label>Straat</label>
+                                        <input type='text' name='straat' size='40'>
+                                    <label>Nr & Extra</label>
+                                        <input type='text' name='nr' id='huisnr' size='8'>
+                                        <input type='text' name='xtr' size='10'>
+                                    <label>Postcode</label>
+                                        <input type='text' name='postcode' size='16'>
+                                    <label>Gemeente</label>
+                                        <input type='text' name='gemnaam' size='40'>
+                                </fieldset>
+                                <br><br>
+                                <fieldset>
+                                    <legend>Contact gegevens</legend>
+                                    <label>Telefoon</label>
+                                        <input type='text' name='tel' size='16'>
+                                    <label>Mobiel</label>
+                                        <input type='text' name='mob' size='16'>
+                                    <label>E-mail</label>
+                                        <input type='text' name='mail' size='40'>
+                                </fieldset>
+                                <br><br>
+                                <fieldset id='buttons'>
+                                    <input type='reset' name='reset' id='reset' value='reset'>
+                                    <input type='submit' name='submit' id='submit' value='verzenden & verwerken'>
+                                </fieldset>
+                            </form>";
 
         } else {
             /**** inhoud formulier verwerken *********/
@@ -102,7 +116,8 @@
                         array('d_naam', 'd_voornaam',
                                 'd_straat','d_nr','d_xtr','d_Postnummer', 'd_GemeenteNaam',
                                 'd_tel','d_mob','d_mail',
-                                'd_gender', 'd_soortlid'));
+                                'd_gender', 'd_soortlid')
+                            );
 
             /**** Query naar DB sturen *********/
             $_result = $_PDO -> query("$_query");
@@ -120,28 +135,83 @@
 
                 while ($_row = $_result -> fetch(PDO::FETCH_ASSOC)) {
 
-                  $_output.=  "<br><h4>".
-                              $_row['d_voornaam']." ".
-                              $_row['d_naam'].
-                              "</h4><hr>".
-                              $_row['d_gender_mnem'].
-                              "&nbsp; / &nbsp;".
-                              $_row['d_soortlid_mnem'].
-                              "<hr>".
-                              $_row['d_straat']."&nbsp;&nbsp;".
-                              $_row['d_nr']."&nbsp;&nbsp;".
-                              " / ".
-                              $_row['d_xtr'].
-                              "<br>".
-                              $_row['d_postnummer']."&nbsp;&nbsp;".
-                              $_row['d_gemeenteNaam'].
-                              "<hr>".
-                              "Tel : ".$_row['d_tel'].
-                              "&nbsp; / &nbsp;".
-                              "Mob : ".$_row['d_mob'].
-                              "<br>".
-                              "Mail : <strong>".$_row['d_mail'].
-                              "</strong><hr>";
+                  $_output.="<div id='toontabel'>
+                                <h1>Lid tonen</h1>
+                                <table>
+                                    <thead>
+                                        <tr>
+                                            <th colspan='2'>
+                                                <h3>".
+                                                    $_row['d_voornaam'].
+                                                    "&nbsp;&nbsp;".
+                                                    $_row['d_naam'].
+                                                "</h3>
+                                            </th>
+                                        </tr>       
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td colspan='2'>".
+                                                $_row['d_gender_mnem'].
+                                            "</td>
+                                        </tr>
+                                        <tr colspan='2'>
+                                            <td colspan='2'>".
+                                                $_row['d_soortlid_mnem'].
+                                            "</td>
+                                        </tr>
+                                        <tr>
+                                            <td colspan='2' class='tabletitle'>
+                                                <h4>Adres</h4>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td colspan='2'>".
+                                                $_row['d_straat'].
+                                            "</td>
+                                        </tr>
+                                        <tr>
+                                            <td>".
+                                                $_row['d_nr'].
+                                            "</td>
+                                            <td>".
+                                                $_row['d_xtr'].
+                                            "</td>
+                                        </tr>
+                                        <tr>
+                                            <td colspan='2'>".
+                                                $_row['d_postnummer'].
+                                            "</td>
+                                        </tr>
+                                        <tr>
+                                            <td colspan='2'>".
+                                                $_row['d_gemeenteNaam'].
+                                            "</td>
+                                        </tr>
+                                    </tbody>
+                                    <tfoot>
+                                        <tr>
+                                            <td colspan='2' class='tabletitle'>
+                                                <h4>Contact gegevens</h4>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                Tel : ".$_row['d_tel'].
+                                            "</td>
+                                            <td>
+                                                Mob : ".$_row['d_mob'].
+                                            "</td>
+                                        </tr>
+                                        <tr>
+                                            <td colspan='2'>
+                                                Mail : ".$_row['d_mail'].
+                                            "</td>
+                                        </tr>
+                                    </tfoot>
+                                </table>
+                                <p>&or;</p>
+                            </div>";
                 }
             }
         }

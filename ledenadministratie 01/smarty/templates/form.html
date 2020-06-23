@@ -1,0 +1,201 @@
+<h1>Lid toevoegen</h1>
+<hr>
+<form method='post' action='$_srv'>
+    <table class='formTable'>
+        <thead>
+            <tr>
+                <th class='group' colspan='3'>
+                    <h3>Personalia</h3>
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <th>
+                    <label>Naam</label>
+                </th>
+                <td colspan='2'>
+                    <input type='text' name='naam' size='30'>
+                </td>
+            </tr>
+            <tr>
+                <th>
+                    <label>Voornaam</label>
+                </th>
+                <td colspan='2'>
+                    <input type='text' name='voornaam' size='30'>
+                </td>
+            </tr>
+            <tr>
+                <th>
+                    <label>Gender</label>
+                </th>
+                <td colspan='2'>
+                    dropDown("gender", "t_gender", "d_index", "d_mnemonic", $_start).
+                </td>
+            </tr>
+            <tr></tr>
+        </tbody>
+        <thead>
+            <tr>
+                <th class='group' colspan='3'>
+                    <h3>Lidmaatschap</h3>
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <th>
+                    <label>Soort lid</label>
+                </th>
+                <td colspan='2'>
+                    dropDown("soort", "t_soort_lid", "d_index", "d_mnemonic", $_start).
+                </td>
+            </tr>
+            <tr></tr>
+        </tbody>
+        <thead>
+            <tr>
+                <th class='group' colspan='3'>
+                    <h3>Adres</h3>
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <th>
+                    <label>Straat</label>
+                </th>
+                <td colspan='2'>
+                    <input type='text' name='straat' size='40'> 
+                </td>
+            </tr>
+            <tr>
+                <th>
+                    <label>Nr & Extra</label>
+                </th>
+                <td class='number'>
+                    <input type='text' name='nr' id='huisnr' size='8'>
+                </td>
+                <td>
+                    <input type='text' name='xtr' size='12'>
+                </td>
+            </tr>
+            <tr>
+                <th>
+                    <label>Postcode</label>
+                </th>
+                <td colspan='2'>
+                    <input type='text' name='postcode' size='10'>
+                </td>
+            </tr>
+            <tr>
+                <th>
+                    <label>Gemeente</label>
+                </th>
+                <td colspan='2'>
+                    <input type='text' name='gemnaam' size='40'>
+                </td>
+            </tr>
+            <tr></tr>
+        </tbody>
+        <thead>
+            <tr>
+                <th class='group' colspan='3'>
+                    <h3>Contactgegevens</h3>
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <th>
+                    <label>Telefoon</label>
+                </th>
+                <td colspan='2'>
+                    <input type='text' name='tel' size='16'>
+                </td>
+            </tr>
+            <tr>
+                <th>
+                    <label>Mobiel</label>
+                </th>
+                <td colspan='2'>
+                    <input type='text' name='mob' size='16'>
+                </td>
+            </tr>
+            <tr>
+                <th>
+                    <label>E-mail</label>
+                </th>
+                <td colspan='2'>
+                    <input type='text' name='mail' size='40'>
+                </td>
+            </tr>
+            <tr></tr>
+        </tbody>
+        <tfoot>
+            <tr>
+                <th class='buttonCol'>
+                    <input type='reset' name='reset' id='reset' value='reset'>
+                </td>
+                <th class='buttonCol'>
+                    <input type='submit' name='submit' id='submit' value='tonen'>
+                </td>
+            </tr>    
+        </tfoot>
+    </table>
+</form>
+
+<!--
+                            <h1>Lid tonen</h1>
+                            <hr>
+                            <form method='post' action='$_srv'>
+                                <fieldset>
+                                    <legend>Personalia</legend>
+                                    <label>Naam</label>
+                                        <input type='text' name='naam' size='40'>
+                                    <label>Voornaam</label>
+                                        <input type='text' name='voornaam' size='40'>
+                                </fieldset>
+                                <br><br>
+                                <fieldset>
+                                    <legend>Gender</legend>
+                                    <label>Gender</label>".
+                                        dropDown("gender", "t_gender", "d_index", "d_mnemonic", $_start).
+                                "</fieldset>
+                                <br><br>
+                                <fieldset>
+                                    <legend>Lidmaatschap</legend>
+                                    <label>Soort lid</label>".
+                                        dropDown("soort", "t_soort_lid", "d_index", "d_mnemonic", $_start).
+                                "</fieldset>
+                                <br><br>
+                                <fieldset>
+                                    <legend>Adres</legend>
+                                    <label>Straat</label>
+                                        <input type='text' name='straat' size='40'>
+                                    <label>Nr & Extra</label>
+                                        <input type='text' name='nr' id='huisnr' size='8'>
+                                        <input type='text' name='xtr' size='10'>
+                                    <label>Postcode</label>
+                                        <input type='text' name='postcode' size='16'>
+                                    <label>Gemeente</label>
+                                        <input type='text' name='gemnaam' size='40'>
+                                </fieldset>
+                                <br><br>
+                                <fieldset>
+                                    <legend>Contact gegevens</legend>
+                                    <label>Telefoon</label>
+                                        <input type='text' name='tel' size='16'>
+                                    <label>Mobiel</label>
+                                        <input type='text' name='mob' size='16'>
+                                    <label>E-mail</label>
+                                        <input type='text' name='mail' size='40'>
+                                </fieldset>
+                                <br><br>
+                                <fieldset id='buttons'>
+                                    <input type='reset' name='reset' id='reset' value='reset'>
+                                    <input type='submit' name='submit' id='submit' value='verzenden & verwerken'>
+                                </fieldset>
+                            </form>";
+-->

@@ -33,14 +33,14 @@
 
             /**** het formulier ********/
             $_output = "
-                <h1>Exception-log</h1>
-                <p>Toon exceptions tussen</p>
+                <h1>Exceptions &hyphen; log</h1>
+                <hr>
+                <h4>Toon <q>exceptions</q> tussen:</h4>
                 <form method='post' action='$_srv'>
-                    <input type='date' name='start' value='$_vandaag'>
-                    <input type='date' name='einde' value='$_vandaag'>
-                    <div class='clearfix'></div>
-                    <br>
-                    <input type='submit' name='submit' value='toon'>
+                    <input type='date' name='start' class='datum datumLeft' value='$_vandaag'>
+                    <input type='date' name='einde' class='datum datumRight' value='$_vandaag'>
+                    <br><br><br>
+                    <input type='submit' name='submit' class='single_button' value='toon'>
                 </form>";
 
         } else {
@@ -57,7 +57,7 @@
 
             /**** 1) "jaar-maand-dag" splitsen ********/
             $_sDatum = $_POST['start'];
-            list($_jaar, $_maand, $_dag) = explode("-", $_sDatum, 3);
+            list($_jaar, $_maand, $_dag) = explode("-",$_sDatum,3);
             /**** explode("-", $_POST['start'], 3); ********/
 
             /**** 2) start-datum voor in scherm output ********/
@@ -66,7 +66,7 @@
             /**** 3) om te gebruiken in vergelijkingen  ********/
             /**** ... ==> start dag omzetten naar timestamp ********/
             /**** mktime(uur,min,sec,maand,dag,jaar) ********/
-            $_start = mktime(0, 0, 0, $_maand, $_dag, $_jaar);
+            $_start = mktime(0,0,0,$_maand,$_dag,$_jaar);
 
 
             /**** einddag omzetten naar timestamp (23 uur, 59 min, 59 sec) ********/
@@ -74,7 +74,7 @@
 
             /**** 1) "jaar-maand-dag" splitsen ********/
             $_eDatum = $_POST['einde'];
-            list($_jaar, $_maand, $_dag) = explode("-", $_eDatum, 3);
+            list($_jaar, $_maand, $_dag) = explode("-",$_eDatum,3);
             /**** explode("-", $_POST['einde'], 3); ********/
 
             /**** 2) eind-datum voor in scherm output ********/
@@ -82,7 +82,7 @@
 
             /**** 3) om te gebruiken in vergelijkingen ==> einde dag omzetten naar timestamp ********/
             /**** mktime(uur,min,sec,maand,dag,jaar) ********/
-            $_einde = mktime(23, 59, 59, $_maand, $_dag, $_jaar);
+            $_einde = mktime(23,59,59,$_maand,$_dag,$_jaar);
 
 
         /**** CSV-file ==> ../logs/error_log.csv <== verwerken ********/
@@ -100,7 +100,7 @@
             /**** initialisaties ********/
             $_output = "";
             
-            $_exceptionCounter= 0;
+            $_exceptionCounter = 0;
 
             /**** CSV-file uitlezen ********/
             while(! feof($_pointer)) {
@@ -115,15 +115,15 @@
                     /**** let op !! formaat in $_tijd is 'dag-maand-jaar uur:min:sec' ********/
                     /**** inhoud $_d exploderen met " " ********/
                     /**** splitsen in 2 delen ==> datum = $_d en tijd = $_t ********/
-                    list($_d, $_t) = explode(" ", $_tijd, 2);
+                    list($_d, $_t) = explode(" ",$_tijd,2);
 
                     /**** let op !! formaat in $_d is ==> "dag-maand-jaar" ********/
                     /**** inhoud $_d exploderen met "-" ********/
                     /**** splitsen in 3 delen ==> $_dag + $_maand + $_jaar ********/
-                    list($_dag, $_maand, $_jaar) = explode("-", $_d, 3);
+                    list($_dag, $_maand, $_jaar) = explode("-",$_d,3);
 
                     /**** errordatum omzetten naar timestamp (0 uur, 0 min, 0 sec,...) ********/
-                    $_errorDatum = mktime(0, 0, 0, $_maand, $_dag, $_jaar);
+                    $_errorDatum = mktime(0,0,0,$_maand,$_dag,$_jaar);
 
                     /**** vergelijk de gelezen datum (error-log datum) ********/
                     /**** ... met de gegeven datums (in het formulier) ********/
@@ -152,10 +152,11 @@
 
             $_output = "
                 <h1>Exceptions</h1>
-                <br>
+                <hr>
                 <p>
-                    <strong>$_exceptionCounter</strong>
-                    exceptions tussen $_sDatum ('s morgens) en $_eDatum('s avonds)
+                    <span class='time'>$_exceptionCounter</span> exceptions tussen:
+                    <br>
+                    <span class='time'>$_sDatum</span> ('s morgens) en <span class='time'>$_eDatum</span> ('s avonds)
                 </p>".$_output;
 
             /**** CSV-file sluitenen ********/

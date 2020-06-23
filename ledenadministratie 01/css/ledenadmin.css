@@ -1,0 +1,594 @@
+@charset "UTF-8";
+
+/**** CSS document voor de main-page ****/
+
+body {
+  width: 960px;
+  margin: 0 auto;
+  letter-spacing: 1px;
+}
+
+h1, h2, h3 {
+  font-family: 'Baloo 2', cursive;
+  font-weight: 900;
+}
+
+h4, h5, h6, p, li, th, td {
+  font-family: 'Delius', sans-serif;
+  line-height: 22px;
+}
+
+ol, ul {
+  font-family: 'Capriola', sans-serif;
+}
+
+p {
+  font-size: 16px;
+  line-height: 24px;
+}
+
+a {
+  text-decoration: none;
+}
+
+a em {
+  padding: 1px 10px 1px 8px;
+  font-family: 'Roboto', sans-serif;
+  color: #0a538a;
+  font-size: 14px;
+  font-weight: 400;
+  letter-spacing: 0;
+  background-color: rgba(105, 105, 105, 0.12);
+  border-radius: 14px;
+}
+
+a em:hover {
+  color: rgb(12, 118, 12);
+  background-color: rgba(91, 196, 220, 0.2);
+}
+
+strong, em, q {
+  font-weight: 700;
+}
+
+form {
+  margin: 30px 0 12px 0;
+}
+
+#mainbox {
+  width: 960px;
+  margin-left: auto;
+  margin-right: auto;
+  background: white;
+}
+
+header {
+  display: block;
+  width: inherit;
+  height: 122px;
+  background: rgb(242, 242, 242);
+}
+
+header img {
+  position: fixed;
+  height: 130px;
+  top: 18px;
+  margin: 0 0 0 66px;
+  z-index: 10;
+}
+
+header h2 {
+  display: inline-block;
+  font-family: 'Exo 2', cursive;
+  font-size: 4.85em;
+  margin-top: 12px;
+  margin-left: 313px;
+  padding-right: 1em;
+  color: rgb(19, 78, 157);
+  font-weight: 800;
+  letter-spacing: 2px;
+}
+
+nav {
+  display: flex;
+  justify-content: right;
+  margin: 0;
+  width: 960px;
+  height: 56px;
+  background: rgba(89, 137, 151, 0.22);
+  border-top: 1px solid rgb(46, 104, 179);
+  border-bottom: 1px solid rgb(46, 104, 179);
+  z-index: 0;
+}
+
+nav ul {
+  margin: 12px 40px 0 0;
+  padding: 8px 40px 0 70px;
+  list-style-type: none;
+}
+
+nav ul li {
+  margin: 0;
+  display: inline;
+}
+
+nav a {
+  padding: 2px 16px 0 16px;
+  color: #0a538a;
+  font-family: 'Baloo 2', cursive;
+  font-size: 24px;
+  font-weight: 700;
+  text-transform: uppercase;
+  text-decoration: none;
+  letter-spacing: 1px;
+  background: none;
+}
+
+nav a:hover,
+nav a:focus {
+  color: rgb(15, 147, 15);
+  background: none;
+}
+
+nav a:active {
+  color: #0a538a;
+}
+
+main {
+  position: inherit;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  top: 58px;
+  height: 540px;
+  padding: 12px 0;
+  background: rgb(242, 242, 242);
+}
+
+#artleft {
+  width: 22%;
+  max-height: 525px;
+  float: left;
+  margin: 1% 0;
+  padding: 0 2%;
+  color: rgb(10, 87, 110);
+  text-align: left;
+  background: rgba(80, 151, 14, 0.2);
+  border: 1px solid rgb(89, 137, 151);
+  box-shadow: 1px 0 2px rgba(102, 102, 102, 0.4), -1px 0 2px rgba(102, 102, 102, 0.4);
+}
+
+#artright {
+  max-width: 50%;
+  float: right;
+  max-height: 525px;
+  margin: 1% 0;
+  padding: 0 4.2%;
+  overflow-y: scroll;
+  list-style: square;
+  color: rgb(0, 99, 0);
+  background: rgba(89, 137, 151, 0.2);
+  border: 1px solid rgb(80, 151, 14);
+  box-shadow: 1px 0 2px rgba(102, 102, 102, 0.4), -1px 0 2px rgba(102, 102, 102, 0.4);
+}
+
+.list {
+  list-style: none;
+}
+
+.homeList {
+  margin-left: -40px;
+}
+
+.commentList {
+  margin-left: -24px;
+}
+
+.mainList {
+  margin-left: -28px;
+}
+
+.ordendList {
+  margin-left: -18px;
+}
+
+.hours {
+  margin-left: -40px;
+  font-family: 'Roboto';
+}
+
+#artleft h1, #artleft h2 {
+  color: rgb(12, 109, 3);
+  font-size: 26px;
+}
+
+#artleft h2 {
+  margin: -16px 0 0 0;
+  padding: 0 0 16px 10px;
+  border-bottom: 2px solid rgba(176, 128, 6, 0.6);
+}
+
+#artleft p {
+  margin-bottom: 8px;
+}
+
+.comment {
+  padding: 0 0 16px 0;
+  border-bottom: 2px solid rgba(176, 128, 6, 0.6);
+}
+
+#artright h1 {
+  color: rgb(1, 86, 123);
+  font-size: 26px;
+}
+
+#artright p {
+  max-width: 460px;
+}
+
+#artright li {
+  padding: 2px 0;
+}
+
+.formTable {
+  max-width: 490px;
+  padding: 4px 6px;
+  letter-spacing: 2px;
+  text-align: left;
+  background: rgba(86, 131, 145, 0.4);
+  border: 1px solid rgba(86, 131, 145, 0.2);
+  border-collapse: separate;
+  border-spacing: 4px;
+  border-radius: 2px;
+}
+
+.formTable th,
+.formTable td {
+  width: 146px;
+  max-height: 24px;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  border: none;
+}
+
+.formTable label,
+.formTable input {
+  width: 100%;
+  margin: 0;
+  padding: 2px 6px;
+}
+
+.formTable input {
+  min-height: 24px;
+  font-family: 'Roboto', sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  letter-spacing: 1px;
+  padding-left: 6px;
+  background: linear-gradient(to bottom, rgba(255, 255, 255, 0.8) 0%,rgba(229, 229, 229, 0.8) 100%);
+  border: none;
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+}
+
+.formTable .group {
+  padding-left: 6px;
+  border: 1px solid rgb(133, 99, 13, 0.4);
+  background: rgba(86, 131, 145, 0.5);
+  border-radius: 4px;
+}
+
+.formTable th {
+  height: 24px;
+  padding: 0 8px 0 0;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 15px;
+  font-weight: 600;
+  letter-spacing: 2px;  
+  text-align: right;
+  /*background: rgba(86, 131, 145, 0.2);*/
+  background: linear-gradient(to bottom, rgba(242, 184, 58, 0.5) 0%,rgba(222, 182, 53, 0.5) 100%);
+  border: 1px solid rgba(86, 131, 145, 0.6);
+  border-top-left-radius: 4px;
+  border-bottom-left-radius: 4px;
+}
+
+.formTable td {
+  min-height: 24px;
+  border: 1px solid rgba(229, 229, 229, 0.8);
+  border-top-right-radius: 4px;
+  border-bottom-right-radius: 4px;
+}
+
+.formTable .group h3 {
+  margin: 0;
+  padding: 10px 0 8px 1px;
+  color: rgb(1, 72, 1);
+  font-family: 'Exo 2', sans-serif;
+  font-weight: 600;
+  font-size: 21px;
+  letter-spacing: 2px;  
+  text-align: left;
+}
+
+.formTable .number {
+  border-radius: 0;
+}
+
+.formTable select {
+  width: 100%;
+  font-size: 16px;
+  letter-spacing: 1px;
+  -moz-appearance: none;
+       appearance: none;
+  border: 1px solid rgb(228, 227, 227);
+  border-radius: 0;
+  border-top-right-radius: 2px;
+  border-bottom-right-radius: 2px;
+}
+
+.formTable select:hover,
+.formTable select:active, 
+.formTable select:focus {
+  border: none;
+  outline: none;
+}
+
+.formTable select::-moz-focus-inner { 
+  border: 0;
+  outline: 0; 
+}
+
+
+.formTable .buttonCol {
+  padding: 0;
+  background: linear-gradient(180deg, rgba(41, 85, 205, .8) 0%, rgba(11, 116, 215, 0.8) 29%, rgba(11, 116, 215, 0.8) 68%, rgba(41, 85, 205, .8) 100%);
+}
+
+.formTable #reset,
+.formTable #submit {
+  clear: both;
+  width: 100%;
+  height: 28px;
+  padding-right: 8px;
+  color: white;
+  font-size: 16px;
+  font-weight: 500;
+  text-align: right;
+  text-transform: capitalize;
+  background: none;
+  border: none;
+}
+
+.single_button {
+  min-width: 121px;
+  height: 22px;
+  margin-top: 8px;
+  padding-left: 14px;
+  font-size: 14px;
+  text-align: center;
+  border-right: 2px solid rgb(21, 58, 179);
+  border-bottom: 1px solid rgb(21, 58, 179);
+  border-left: 2px solid rgb(21, 58, 179);
+  border-radius: 14px;
+}
+
+#reset:hover,
+#submit:hover,
+.single_button:hover {
+  /*color: rgb(237, 199, 12);*/
+  color: rgb(252, 229, 175);
+  background: rgb(0, 143, 88);
+}
+
+.single_button:hover {
+  border-left: 2px solid rgb(0, 77, 47);
+}
+
+.datum {
+  width: 150px;
+  margin: -20px 6px 0 -3px;
+  text-align: center;
+}
+
+.datumLeft {
+  border: none;
+  border-left: 2px solid darkolivegreen;
+  border-bottom: 1px solid darkolivegreen;
+  border-radius: 4px;
+  border-top-left-radius: 14px;
+  border-bottom-left-radius: 14px;
+}
+
+.datumSingle {
+  border-right: 2px solid darkolivegreen;
+  border-bottom: 1px solid darkolivegreen;
+  border-left: 2px solid darkolivegreen;
+  border-radius: 14px;
+}
+
+.time {
+  font-family: 'Roboto', sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+br {
+  display: block;
+  margin-bottom: 40px;
+  width: 426px;
+  margin: 0 0 2px 0;
+}
+
+hr {
+  display: block;
+  height: 2px;
+  width: 100%;
+  margin: 20px 20px 10px 0;
+  background-color: rgba(176, 128, 6, 0.6);;
+  border: none;
+}
+
+.homepage {
+  margin: -2px 0 0 0;
+  padding: 0;
+}
+
+.homepagelogo {
+  height: 200px;
+  width: 200px;
+  margin-top: 160px;
+  padding: 5px 5px 0 5px;
+}
+
+#toontabel {
+  margin-top: 18px;
+}
+
+.outputTable {
+  margin: auto;
+  text-align: left;
+  border-collapse: separate;
+  border-spacing: 12px;
+  /*border-bottom: 1px solid rgb(0, 77, 47);
+  border-left: 1px solid rgb(0, 77, 47);*/
+  border: 1px solid rgb(0, 77, 47);
+  border-bottom-left-radius: 14px;
+  box-shadow: -1px 1px 1px rgba(108, 108, 108, 0.6);
+}
+
+.outputTable th h3,
+.outputTable td h4 {
+  margin: 0;
+  padding: 4px 0;
+  max-height: 18px;
+}
+
+.outputTable td h4 {
+  font-size: 17px;
+}
+
+.outputTable tbody {
+  padding: 6px 0;
+}
+
+.outputTable th,
+.outputTable td {
+  width: 180px;
+  padding: 2px 12px;
+  border-bottom-left-radius: 8px;
+  box-shadow: -1px 1px 1px rgba(108, 108, 108, 0.6);
+}
+
+.outputTable td {
+  font-weight: 500;
+  border-left: 1px solid rgb(0, 77, 47);
+  border-bottom: 1px solid rgb(0, 77, 47);
+}
+
+.outputTable th {
+  font-size: 18px;
+  font-weight: 700;
+  border-left: 2px solid rgb(176, 128, 6);
+  border-bottom: 2px solid rgb(176, 128, 6);
+}
+
+.outputTable p {
+  margin-left: 20px;
+  font-weight: 600;
+  text-align: center;
+}
+
+.outputTable .tabletitle {
+  border-left: 1px solid rgb(176, 128, 6);
+  border-bottom: 1px solid rgb(176, 128, 6);
+}
+
+.margLeft {
+  margin-left: 12px;
+}
+/*
+.a {
+  float: left;
+  margin-bottom: 0.5em;
+  margin-right: 1em;
+}
+
+.terug {
+  float: right;
+}
+
+.out td {
+  padding: 8px;
+  text-align: left;
+}
+
+.naam {
+  clear: both;
+  float: left;
+  margin-right: 0.5em;
+  width: 100px;
+}
+
+.waarde {
+  float: left;
+  margin-bottom: 0.5em;
+  margin-right: 1em;
+}
+
+#gender,
+#soort {
+  float: left;
+  margin-bottom: 0.5em;
+  margin-right: 0.5em;
+}
+
+#invoer label {
+  clear: both;
+  width: 45%;
+  float: left;
+  margin: 0.3em 0 0 0;
+  font-size: 1.5em;
+  font-weight: bold;
+}
+
+#invoer input {
+  float: left;
+  margin: 0.3em 0 0 1em;
+}
+*/
+footer {
+  max-width: 960px;
+  clear: both;
+  height: 40px;
+  border-top: solid rgb(44, 63, 114) 1px;
+  padding-top: 1em;
+  padding-left: 2em;
+  background: rgba(89, 137, 151, 0.2);
+}
+
+footer div {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  width: 565px;
+  margin: 4px auto;
+}
+
+.boodschap {
+  margin-top: 50px;
+}
+
+.temp {
+  color: rgb(44, 63, 114);
+  font-size: 2em;
+  font-weight: 500;
+}
+
+.copyright {
+  color: rgb(0, 99, 0);
+  font-family: 'Montserrat', cursive;
+  font-size: 14px;
+  letter-spacing: 0;
+}

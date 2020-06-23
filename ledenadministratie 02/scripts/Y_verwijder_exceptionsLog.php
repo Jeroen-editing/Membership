@@ -15,7 +15,7 @@
         include("../connections/pdo.inc.php");
             
         /**** maak variabele selectie query ********/
-        include("../php_lib/inlezen.inc.php");
+        require("../php_lib/inlezen.inc.php");
 
         
     /************* (Input en) verwerking ***********************************************/
@@ -33,14 +33,13 @@
 
             /**** het formulier ********/
             $_output = "
-                <h1>Exception-log</h1>
-                <form methode='post' action='$_srv'>
-                    <p>Verwijder Exceptions tot en met </p>
-                    <br>
-                    <input type='date' name='einde' value='$_vandaag'>
-                    <div class='clearfix'></div>
-                    <br>
-                    <input type='submit' name='submit' value='verwijder'
+                <h1>Exceptions &hyphen; log</h1>
+                <hr>
+                <h4>Verwijder <q>exceptions</q> tot en met:</h4>
+                <form method='POST' action='$_srv'>
+                    <input type='date' name='einde' class='datum datumSingle' value='$_vandaag'>
+                    <br><br><br>
+                    <input type='submit' name='submit' class='single_button' value='Verwijder'>
                 </form>";
 
         } else {
@@ -64,7 +63,7 @@
 
             /**** 3) om te gebruiken in vergelijkingen ==> einde-dag omzetten naar timestamp ********/
             /**** mktime(uur,min,sec,maand,dag,jaar) ********/
-            $_einde = mktime(23, 59, 59, $_maand, $_dag, $_jaar);
+            $_einde = mktime(23,59,59,$_maand,$_dag,$_jaar);
 
 
         /**** CSV-file ==> ../logs/error_log.csv <== verwerken ********/
@@ -76,22 +75,22 @@
             /**** als openen CSV-file niet lukt ==> error-melding geven ********/
             if (! $_pointerA) {
 
-                throw new Exception("Opening actual error_log failed");
+                throw new Exception("Opening actuele error_log failed");
             }
 
             /**** tijdelijke CSV-file openen = T ********/
-            $_pointerT = fopen("../logs/temporary_error_log.csv","w+b");
+            $_pointerT = fopen("../logs/tijdelijke_error_log.csv","w+b");
 
             /**** als openen CSV-file niet lukt ==> error-melding geven ********/
             if (! $_pointerT) {
 
-                throw new Exception("Opening temporary error_log failed");
+                throw new Exception("Opening tijdelijke error_log failed");
             }
 
             /**** initialisaties ********/
             $_output = "";
             
-            $_exceptionCounter= 0;
+            $_exceptionCounter = 0;
 
             /**** actuele CSV-file uitlezen ********/
             while(! feof($_pointerA)) {
@@ -106,15 +105,15 @@
                     /**** let op !! formaat in $_tijd is 'dag-maand-jaar uur:min:sec' ********/
                     /**** inhoud $_d exploderen met " " ********/
                     /**** splitsen in 2 delen ==> datum = $_d en tijd = $_t ********/
-                    list($_d, $_t) = explode(" ", $_tijd, 2);
+                    list($_d, $_t) = explode(" ",$_tijd,2);
 
                     /**** let op !! formaat in $_d is ==> "dag-maand-jaar" ********/
                     /**** inhoud $_d exploderen met "-" ********/
                     /**** splitsen in 3 delen ==> $_dag + $_maand + $_jaar ********/
-                    list($_dag, $_maand, $_jaar) = explode("-", $_d, 3);
+                    list($_dag, $_maand, $_jaar) = explode("-",$_d,3);
 
                     /**** errordatum omzetten naar timestamp (0 uur, 0 min, 0 sec,...) ********/
-                    $_errorDatum = mktime(0, 0, 0, $_maand, $_dag, $_jaar);
+                    $_errorDatum = mktime(0,0,0,$_maand,$_dag,$_jaar);
 
                     /**** vergelijk de gelezen datum (error-log datum) ... ********/
                     /**** ... met de gegeven eind-datum (in het formulier) ********/
@@ -128,7 +127,8 @@
 
                     } else {
 
-                    fputcsv($_pointerT, $_error_log) ;
+                        fputcsv($_pointerT,$_error_log);
+
                     }
                 }
             }
@@ -142,16 +142,18 @@
             unlink("../logs/error_log.csv");
 
             /**** en de tijdelijke error-log wordt hernoemd naar de actuele error-log ********/
-            rename("../logs/temporary_error_log.csv","../logs/error_log.csv");
+            rename("../logs/tijdelijke_error_log.csv","../logs/error_log.csv");
 
             /**** output aanmaken ********/
             /**** titel vooraan plaatsen ********/
-            $_output = "
-            <h1>Exceptions</h1>
-            <br>
-            <p>
-                Alle exceptions (<em>$_exceptionCounter</em>) tot en met $_eDatum, zijn verwijderd.
-            </p>"
+            $_output = "<h1>Exceptions</h1>
+                        <hr>
+                        <p>
+                            Alle exceptions <span class='time'>($_exceptionCounter)</span>
+                            tot en met <span class='time'>$_datum</span>,
+                            <br>
+                            zijn verwijderd.
+                        </p>";
 
         }
 
